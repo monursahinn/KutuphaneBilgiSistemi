@@ -174,6 +174,7 @@
             Controls.Add(dataGridView1);
             Controls.Add(label9);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             Name = "EmanetKitapIade";
             StartPosition = FormStartPosition.CenterScreen;

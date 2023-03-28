@@ -76,11 +76,11 @@ namespace KutuphaneBilgiSistemi
         {
             baglanti.Open();
             SqlCommand komut = new SqlCommand("DELETE FROM EmanetKitaplar WHERE TCKimlikNo=@TCKimlikNo and BarkodNo=@BarkodNo", baglanti);
-            komut.Parameters.AddWithValue("@TCKimlikNo", dataGridView1.CurrentRow.Cells["TCKimlikNo"].Value.ToString);
-            komut.Parameters.AddWithValue("@BarkodNo", dataGridView1.CurrentRow.Cells["BarkodNo"].Value.ToString);
+            komut.Parameters.AddWithValue("@TCKimlikNo", dataGridView1.CurrentRow.Cells["TCKimlikNo"].Value.ToString());
+            komut.Parameters.AddWithValue("@BarkodNo", dataGridView1.CurrentRow.Cells["BarkodNo"].Value.ToString());
             komut.ExecuteNonQuery();
-            SqlCommand komut2 = new SqlCommand("UPDATE Kitaplar SET StokMiktari=StokMiktari+ '" + int.Parse(dataGridView1.CurrentRow.Cells["StokMiktari"].Value.ToString()) + "' WHERE BarkodNo=@BarkodNo", baglanti);
-            komut2.Parameters.AddWithValue("@BarkodNo", dataGridView1.CurrentRow.Cells["BarkodNo"].Value.ToString);
+            SqlCommand komut2 = new SqlCommand("UPDATE Kitaplar SET StokMiktari = StokMiktari + '" + int.Parse(dataGridView1.CurrentRow.Cells["KitapSayisi"].Value.ToString()) + "' WHERE BarkodNo=@BarkodNo", baglanti);
+            komut2.Parameters.AddWithValue("@BarkodNo", dataGridView1.CurrentRow.Cells["BarkodNo"].Value.ToString());
             komut2.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Kitap(lar) iade edilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

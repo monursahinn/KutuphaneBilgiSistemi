@@ -499,6 +499,7 @@
             Controls.Add(grpUyeBilgileri);
             Controls.Add(dataGridView1);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "EmanetKitapVerme";
             StartPosition = FormStartPosition.CenterScreen;

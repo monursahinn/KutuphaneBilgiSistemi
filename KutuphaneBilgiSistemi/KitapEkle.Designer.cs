@@ -324,6 +324,7 @@
             Controls.Add(txtAciklama);
             Controls.Add(txtKBarkodNo);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "KitapEkle";
             StartPosition = FormStartPosition.CenterScreen;

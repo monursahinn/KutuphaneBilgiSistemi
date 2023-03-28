@@ -30,10 +30,10 @@ namespace KutuphaneBilgiSistemi
             SqlDataReader reader = komut.ExecuteReader();
             while (reader.Read())
             {
-            //chart1.Series["OkunanKitapSayisi"].Points.AddXY(reader["AdSoyad"].ToString(), reader["OkunanKitapSayisi"]);
+                // chart1.Series["OkunanKitapSayisi"].Points.AddXY(reader["AdSoyad"].ToString(), reader["OkunanKitapSayisi"]);
             }
             baglanti.Close();
-            //chart1.Series["OkunanKitapSayisi"].Color = Color.Green;
+            // chart1.Series["OkunanKitapSayisi"].Color = Color.Green;
         }
     }
 }

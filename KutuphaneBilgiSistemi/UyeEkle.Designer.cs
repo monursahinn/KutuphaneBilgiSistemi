@@ -316,6 +316,7 @@
             Controls.Add(txtAdSoyad);
             Controls.Add(txtTC);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "UyeEkle";
             StartPosition = FormStartPosition.CenterScreen;

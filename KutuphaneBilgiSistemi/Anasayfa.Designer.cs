@@ -283,6 +283,7 @@
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "Anasayfa";
             StartPosition = FormStartPosition.CenterScreen;

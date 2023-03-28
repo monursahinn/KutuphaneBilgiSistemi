@@ -25,20 +25,37 @@ namespace KutuphaneBilgiSistemi
         SqlConnection baglanti = new SqlConnection("Data Source=TB701-5876;Initial Catalog=KutuphaneBS;Integrated Security=True");
         private void txtTC_TextChanged(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT * FROM Uyeler where TCKimlikNo like '%" + txtTC.Text + "%'", baglanti);
-            SqlDataReader read = komut.ExecuteReader();
-            while (read.Read())
+            if (txtTC.Text!="")
             {
-                txtAdSoyad.Text = read["AdSoyad"].ToString();
-                txtYas.Text = read["Yas"].ToString();
-                comboCinsiyet.Text = read["Cinsiyet"].ToString();
-                txtTelefon.Text = read["TelefonNo"].ToString();
-                txtAdres.Text = read["Adres"].ToString();
-                txtEmail.Text = read["Email"].ToString();
-                txtOKS.Text = read["OkunanKitapSayisi"].ToString();
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("SELECT * FROM Uyeler where TCKimlikNo like '%" + txtTC.Text + "%'", baglanti);
+                SqlDataReader read = komut.ExecuteReader();
+                while (read.Read())
+                {
+                    txtAdSoyad.Text = read["AdSoyad"].ToString();
+                    txtYas.Text = read["Yas"].ToString();
+                    comboCinsiyet.Text = read["Cinsiyet"].ToString();
+                    txtTelefon.Text = read["TelefonNo"].ToString();
+                    txtAdres.Text = read["Adres"].ToString();
+                    txtEmail.Text = read["Email"].ToString();
+                    txtOKS.Text = read["OkunanKitapSayisi"].ToString();
+                    
+                }
+            
+            }
+            else
+            {
+                txtAdSoyad.Text = "";
+                txtYas.Text = "";
+                comboCinsiyet.Text = "";
+                txtTelefon.Text = "";
+                txtAdres.Text ="";
+                txtEmail.Text = "";
+                txtOKS.Text = "";
+
             }
             baglanti.Close();
+
         }
         DataSet ds = new DataSet();
         private void txtAra_TextChanged(object sender, EventArgs e)

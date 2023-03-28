@@ -67,7 +67,7 @@ namespace KutuphaneBilgiSistemi
                 }
             }
             baglanti.Open();
-            SqlCommand komut2 = new SqlCommand("SELECT sum(StokMiktari) FROM EmanetKitaplar where TCKimlikNo='" + txtTCKimlik.Text + "'", baglanti);
+            SqlCommand komut2 = new SqlCommand("SELECT sum(KitapSayisi) FROM EmanetKitaplar where TCKimlikNo='" + txtTCKimlik.Text + "'", baglanti);
             lblKayitliKitapSayi.Text = komut2.ExecuteScalar().ToString();
             baglanti.Close();
             if (txtTCKimlik.Text == "")
@@ -140,16 +140,16 @@ namespace KutuphaneBilgiSistemi
 
         private void btnTeslimEt_Click(object sender, EventArgs e)
         {
-            if (lblKayitliKitapSayi.Text != "")
+            if (lblSepetKitapSayi.Text != "")
             {
-                if (lblKayitliKitapSayi.Text == "" && int.Parse(lblKayitliKitapSayi.Text) <= 5 || lblKayitliKitapSayi.Text != "" && (int.Parse(lblKayitliKitapSayi.Text) + int.Parse(lblSepetKitapSayi.Text) <= 5))
+                if (lblKayitliKitapSayi.Text == "" && int.Parse(lblSepetKitapSayi.Text) <= 5 || lblKayitliKitapSayi.Text != "" && int.Parse(lblKayitliKitapSayi.Text) + int.Parse(lblSepetKitapSayi.Text) <= 5)
                 {
                     if (txtTCKimlik.Text != "" && txtAdSoyad.Text != "" && txtTelefon.Text != "" && txtEmail.Text != "")
                     {
                         for (int i = 0; i < dataGridView1.Rows.Count - 1; i++)
                         {
                             baglanti.Open();
-                            SqlCommand komut = new SqlCommand("INSERT INTO EmanetKitaplar(TCKimlikNo, AdSoyad, TelefonNo, Eposta, BarkodNo, KitapAdi, Yazari, Yayinevi, SayfaSayisi, StokMiktari, TeslimTarihi, IadeTarihi) values(@TCKimlikNo, @AdSoyad, @TelefonNo, @Eposta, @BarkodNo, @KitapAdi, @Yazari, @Yayinevi, @SayfaSayisi, @StokMiktari, @TeslimTarihi, @IadeTarihi) ", baglanti);
+                            SqlCommand komut = new SqlCommand("INSERT INTO EmanetKitaplar(TCKimlikNo, AdSoyad, TelefonNo, Eposta, BarkodNo, KitapAdi, Yazari, Yayinevi, SayfaSayisi, KitapSayisi, TeslimTarihi, IadeTarihi) values(@TCKimlikNo, @AdSoyad, @TelefonNo, @Eposta, @BarkodNo, @KitapAdi, @Yazari, @Yayinevi, @SayfaSayisi, @KitapSayisi, @TeslimTarihi, @IadeTarihi) ", baglanti);
                             komut.Parameters.AddWithValue("@TCKimlikNo", txtTCKimlik.Text);
                             komut.Parameters.AddWithValue("@AdSoyad", txtAdSoyad.Text);
                             komut.Parameters.AddWithValue("@TelefonNo", txtTelefon.Text);
@@ -159,7 +159,7 @@ namespace KutuphaneBilgiSistemi
                             komut.Parameters.AddWithValue("@Yazari", dataGridView1.Rows[i].Cells["Yazari"].Value.ToString());
                             komut.Parameters.AddWithValue("@Yayinevi", dataGridView1.Rows[i].Cells["Yayinevi"].Value.ToString());
                             komut.Parameters.AddWithValue("@SayfaSayisi", dataGridView1.Rows[i].Cells["SayfaSayisi"].Value.ToString());
-                            komut.Parameters.AddWithValue("@StokMiktari", int.Parse(dataGridView1.Rows[i].Cells["StokMiktari"].Value.ToString()));
+                            komut.Parameters.AddWithValue("@KitapSayisi", int.Parse(dataGridView1.Rows[i].Cells["KitapSayisi"].Value.ToString()));
                             komut.Parameters.AddWithValue("@TeslimTarihi", dataGridView1.Rows[i].Cells["TeslimTarihi"].Value.ToString());
                             komut.Parameters.AddWithValue("@IadeTarihi", dataGridView1.Rows[i].Cells["IadeTarihi"].Value.ToString());
                             komut.ExecuteNonQuery();

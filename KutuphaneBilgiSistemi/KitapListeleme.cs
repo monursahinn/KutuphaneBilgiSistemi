@@ -111,19 +111,34 @@ namespace KutuphaneBilgiSistemi
 
         private void txtKBarkodNo_TextChanged(object sender, EventArgs e)
         {
-            baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT * FROM Kitaplar where BarkodNo like '%" + txtKBarkodNo.Text + "%'", baglanti);
-            SqlDataReader read = komut.ExecuteReader();
-            while (read.Read())
+            if (txtKBarkodNo.Text != "")
             {
-                txtKitapAdi.Text = read["KitapAdi"].ToString();
-                txtYazari.Text = read["Yazari"].ToString();
-                txtYayinevi.Text = read["Yayinevi"].ToString();
-                comboTuru.Text = read["Turu"].ToString();
-                txtSayfaSayisi.Text = read["SayfaSayisi"].ToString();
-                txtStokMiktari.Text = read["StokMiktari"].ToString();
-                txtRafNumarasi.Text = read["RafNumarasi"].ToString();
-                txtAciklama.Text = read["Aciklama"].ToString();
+                baglanti.Open();
+                SqlCommand komut = new SqlCommand("SELECT * FROM Kitaplar where BarkodNo like '%" + txtKBarkodNo.Text + "%'", baglanti);
+                SqlDataReader read = komut.ExecuteReader();
+                while (read.Read())
+                {
+                    txtKitapAdi.Text = read["KitapAdi"].ToString();
+                    txtYazari.Text = read["Yazari"].ToString();
+                    txtYayinevi.Text = read["Yayinevi"].ToString();
+                    comboTuru.Text = read["Turu"].ToString();
+                    txtSayfaSayisi.Text = read["SayfaSayisi"].ToString();
+                    txtStokMiktari.Text = read["StokMiktari"].ToString();
+                    txtRafNumarasi.Text = read["RafNumarasi"].ToString();
+                    txtAciklama.Text = read["Aciklama"].ToString();
+                }
+            }
+            else
+            {
+                txtKitapAdi.Text = "";
+                txtYazari.Text = "";
+                txtYayinevi.Text = "";
+                comboTuru.Text = "";
+                txtSayfaSayisi.Text = "";
+                txtStokMiktari.Text = "";
+                txtRafNumarasi.Text = "";
+                txtAciklama.Text = "";
+
             }
             baglanti.Close();
         }

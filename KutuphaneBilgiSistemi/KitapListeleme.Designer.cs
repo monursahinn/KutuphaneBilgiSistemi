@@ -369,6 +369,7 @@
             Controls.Add(txtKBarkodNo);
             Controls.Add(label10);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4, 3, 4, 3);
             Name = "KitapListeleme";
             StartPosition = FormStartPosition.CenterScreen;
