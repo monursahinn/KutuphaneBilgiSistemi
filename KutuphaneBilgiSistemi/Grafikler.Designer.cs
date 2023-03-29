@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Grafikler));
             label9 = new Label();
-            checkBox1 = new CheckBox();
             SuspendLayout();
             // 
             // label9
@@ -45,23 +44,12 @@
             label9.Text = "Grafikler";
             label9.Click += label9_Click;
             // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(617, 240);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(96, 21);
-            checkBox1.TabIndex = 49;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
             // Grafikler
             // 
             AutoScaleDimensions = new SizeF(9F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Desktop;
             ClientSize = new Size(826, 510);
-            Controls.Add(checkBox1);
             Controls.Add(label9);
             Font = new Font("Snap ITC", 9F, FontStyle.Regular, GraphicsUnit.Point);
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -77,6 +65,5 @@
         #endregion
 
         private Label label9;
-        private CheckBox checkBox1;
     }
 }
